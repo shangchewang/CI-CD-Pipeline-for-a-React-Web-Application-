@@ -1,0 +1,54 @@
+Modify the stage Checkout in the pipeline and clone the following Git repository: https://github.com/Veverita-Engineering/Customer-Portal
+To generate the git instruction needed, open the Pipeline Syntax Snippet Generator, which is available at:https://RANDOM_URL.udemylabs.com/pipeline-syntax/
+Generate the snippet and copy it.
+Add the generated code to the Checkout stage.
+Run the pipeline and check the logs for any errors. No errors are expected at this point. The screenshot below shows a successful stage execution.
+
+
+Syntax:
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Veverita-Engineering/Customer-Portal'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build'
+            }
+        }
+
+        stage('Parallel Stage') {
+            failFast true
+            parallel {
+                stage('Test') {
+                    steps {
+                        echo 'Test'
+                    }
+                }
+                stage('SCA') {
+                    steps {
+                        echo 'SCA'
+                    }
+                }
+            }
+        }
+
+        stage('Deploy staging') {
+            steps {
+                echo 'Deploy staging'
+            }
+        }
+
+        stage('Deploy prod') {
+            steps {
+                echo 'Deploy prod'
+            }
+        }
+    }
+}
