@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test'
+            }
+        }
+        stage('SCA') {
+            steps {
+                echo 'SCA'
+            }
+        }
+        stage('Deploy staging') {
+            steps {
+                echo 'Deploy staging'
+            }
+        }
+        stage('Deploy prod') {
+            steps {
+                echo 'Deploy prod'
+            }
+        }
+    }
+}
