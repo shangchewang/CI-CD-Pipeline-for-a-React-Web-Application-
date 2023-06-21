@@ -1,0 +1,6 @@
+From the Jenkins Dashboard, go to Manage Jenkins and then choose Manage plugins which will open the Plugin Manager.
+From the Plugin Manager, select the Available tab. Search for "blue ocean" and install the Blue Ocean plugin by selecting Download now and install after restart.
+Wait until all plugins are downloaded. After this restart Jenkins.
+Wait for Jenkins to restart.
+From the Jenkins dashboard, click on Open the Blue Ocean from the right side panel and go to the Customer Portal pipeline.
+Click on the latest pipeline execution to see the pipeline graph.
