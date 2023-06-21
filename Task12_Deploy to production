@@ -1,0 +1,19 @@
+Use the Netlify CLI to deploy the project to the production environment.
+
+The Netlify CLI deploy command expects you to specify which directory you wish to deploy. After the Build stage, the website is located in the build directory.
+
+Hint: Don't forget to specify the prod flag to trigger a production deployment.
+
+Add a smoke test after the deployment to check if the environment is available with the following command:
+
+curl https://YOUR-WEBSITE-NAME | grep -q "React App"
+
+1. Ammend the Deploy to prod stage with the following step.
+
+sh 'node_modules/.bin/netlify deploy --dir=build --prod'
+
+2. Execute the pipeline and inspect the logs.
+3. Manually verify that the deployment has been successful by opening the website.
+4. Add the smoke test to verify the successful deployment:
+
+curl https://YOUR-WEBSITE-NAME | grep -q "React App"
